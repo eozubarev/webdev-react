@@ -1,28 +1,37 @@
 import './App.css';
-import Footer from './Footer/Footer';
-import Header from './Header/Header';
-import Main from './Main/Main';
-import Sidebar from './Main/Sidebar';
+import Header from './Components/Header';
+import About from './About';
+import Users from './Users';
+import Main from './Main';
+import UserId from './UserId';
+import Error from './Error';
 
-const site = {
-	site_name : "React about Site",
-	site_title : "my first site with react",
-	nav : [
-    {"link": "nav1", "text": "my link" },
-    {"link": "nav2", "text": "my link 2" },
-    {"link": "nav3", "text": "my link 3" },
-  ]
-}
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
+// У кого ошибка, появилась новая 6 версия Роутера. 
+// 1.Вместо Switch будет Routes
+// 2.Вместо component будет element
+// 3. component = "about"  👉  element = {<about/>}
+// 4. import {BrowserRouter , Router, Routes, Link} from  "react-router-dom".
 
 function App() {
   return (
-	<div>
-    <Header siteInfo = {site} />
-    <Footer siteInfo = {site} />
-  </div>
+    <>
+      <Header />
+      <Router>
+        <Routes>
+          <Route exact path="/" element= { <Main/> } />
+          <Route path="/about" element = { <About/> } />
+          <Route exact path="/users" element= { <Users/> } />
+          <Route path="/users/:userName" element= { <UserId/> } />
+          <Route path="*" element= { <Error/> } />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
 
 export default App;
+
+
