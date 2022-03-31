@@ -1,27 +1,12 @@
-function Header (props) {
-    return (
-        <header>
-            <h1>{props.data.siteName}</h1>
-            <h2>{props.second_header}</h2>
-            <Nav nav = {props.data.nav}/>
-        </header>
-    )
-}
+import React from 'react'
+import Nav from './Nav'
 
-function Nav (props) {
-    let data = props.nav;
-    const listItem = data.map( item => {
-        return <li key={item.link}>
-                    <a href={item.link}> {item.text} </a>
-                </li>
-    })
-    return (
-         <nav>
-            <ul>
-                {listItem}
-            </ul>
-        </nav>
-    )     
+export default function Header(props) {
+  return (
+    <header>
+        <h1>{props.siteInfo.site_name}</h1>
+        <h2>{props.siteInfo.site_title}</h2>
+        <Nav nav={props.siteInfo.nav}/>
+    </header>
+  )
 }
-
-export default Header;
