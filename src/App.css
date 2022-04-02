@@ -1,5 +1,4 @@
-.test {
-    width: 100px;
-    height: 100px;
-    background-color: orange;
+#root {
+    max-width: 1000px;
+    margin: 50px auto;
 }
