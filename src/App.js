@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import Comp1 from './Comp1';
-import { useState } from 'react'
-import Comp2 from './Comp2';
+import Test from './test';
+import Test2 from './test2';
+
 
 function App() {
 
   return (
     <>
-      <Comp2/>
+      {/* <Test arg={77}/> */}
+      <Test2 arg = {77}/>
     </>
   );
 
